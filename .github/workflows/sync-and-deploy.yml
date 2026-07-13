@@ -56,9 +56,8 @@ jobs:
       - name: Build site
         if: github.event_name == 'workflow_dispatch' || steps.sync_commit.outputs.changed == 'true'
         env:
-          # GitHub Pages serves this repo at https://jackreichert.github.io/ilanacmyer/
-          # so all assets must be rewritten to include the /<repo-name>/ prefix.
-          PATH_PREFIX: /ilanacmyer/
+          # Custom domain at https://ilanacmyer.com/ serves from repo root.
+          PATH_PREFIX: /
         run: npm run build
 
       - if: github.event_name == 'workflow_dispatch' || steps.sync_commit.outputs.changed == 'true'
