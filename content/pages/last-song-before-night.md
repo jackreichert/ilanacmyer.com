@@ -7,7 +7,7 @@ description: "Last Song Before Night, an epic fantasy of the lures and perils of
 layout: page
 ---
 
-[![](/assets/images/12764-updated-last-song-cover-555f4df6.jpg)](http://54.90.249.139/wp-content/uploads/2014/07/Updated-Last-Song-Cover.jpg)
+<figure class="alignleft is-resized"><a href="http://54.90.249.139/wp-content/uploads/2014/07/Updated-Last-Song-Cover.jpg"><img loading="lazy" width="198" height="299" data-attachment-id="555" data-permalink="https://ilanacmyer.com/books/updated-last-song-cover-2/" data-orig-file="/assets/images/12764-updated-last-song-cover-555f4df6.jpg" data-orig-size="677,1024" data-comments-opened="1" data-image-meta="{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"1"}" data-image-title="Updated-Last-Song-Cover" data-image-description="" data-image-caption="" data-large-file="/assets/images/12764-updated-last-song-cover-555f4df6.jpg?w=677" src="/assets/images/12764-updated-last-song-cover-555f4df6.jpg" alt="" class="wp-image-555" style="aspect-ratio:0.66;width:198px;height:auto" sizes="auto, (max-width: 198px) 100vw, 198px"></a></figure>
 
 [*Last Song Before Night*](http://www.amazon.com/Last-Song-Before-Night-Ilana/dp/0765378302/ref=sr_1_1?ie=UTF8&qid=1422389412&sr=8-1&keywords=last+song+before+night&pebp=1422389415592&peasin=765378302), an epic fantasy of the lures and perils of art, was released by Tor/Macmillan in October 2015 and is available in hardcover, ebook, trade paperback, and audiobook. [READ AN EXCERPT at Tor.com](http://www.tor.com/2015/08/19/excerpt-last-song-before-night-ilana-myer/).
 

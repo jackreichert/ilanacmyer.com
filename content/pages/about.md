@@ -7,8 +7,9 @@ description: "Ilana C. Myer has written for the Globe and Mail, the Los Angeles 
 layout: page
 ---
 
-![](/assets/images/f369b-author-photo-cropped-e1424561983800-17a09881.jpg)  
-Ilana C. Myer has written for the *Globe and Mail*, the *Los Angeles Review of Books, Salon*, and the *Huffington Post*. Previously she was a freelance journalist in Jerusalem for the *Jerusalem Post, The* *Forward, Time Out Israel* and other publications. She lives in New York City.
+<figure class="alignright is-resized"><img loading="lazy" width="225" height="300" data-attachment-id="30" data-permalink="https://ilanacmyer.com/about/author-photo-cropped/" data-orig-file="/assets/images/f369b-author-photo-cropped-e1424561983800-17a09881.jpg" data-orig-size="275,367" data-comments-opened="1" data-image-meta="{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}" data-image-title="Author Photo cropped" data-image-description="" data-image-caption="" data-large-file="/assets/images/f369b-author-photo-cropped-e1424561983800-17a09881.jpg?w=275" src="/assets/images/f369b-author-photo-cropped-e1424561983800-17a09881.jpg" alt="" class="wp-image-30" style="aspect-ratio:0.75;width:225px;height:auto" sizes="auto, (max-width: 225px) 100vw, 225px"></figure>
+
+Ilana C. Myer has written for the *Globe and Mail*, the *Los Angeles Review of Books, Salon*, and the *Huffington Post*. Previously she was a freelance journalist in Jerusalem for the *Jerusalem Post, The Forward, Time Out Israel* and other publications. She lives in New York City.
 
 Ilana was born in New York but grew up in Jerusalem, Israel, where she spent her teen years haunting secondhand bookstores in search of books written in English—especially fantasy. It was in one of these shops that she discovered David Eddings and realized that epic fantasy continued after Tolkien, and from there went on to make such marvelous discoveries as Tad Williams, Robin Hobb, and Guy Gavriel Kay.
 
