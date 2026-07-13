@@ -61,6 +61,6 @@ export default {
   turnstile: {
     // Get your site key from: https://dash.cloudflare.com/?to=/:account/turnstile
     // Set via environment variable: TURNSTILE_SITE_KEY
-    siteKey: process.env.TURNSTILE_SITE_KEY || "",
+    siteKey: process.env.TURNSTILE_SITE_KEY || "0x4AAAAAAD1JzbRhWc9BLrHK",
   },
 };
