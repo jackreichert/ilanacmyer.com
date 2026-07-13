@@ -7,7 +7,7 @@ description: "Ilana C. Myer has written for the Globe and Mail, the Los Angeles 
 layout: page
 ---
 
-![Author Photo cropped](https://i0.wp.com/54.90.249.139/wp-content/uploads/2014/07/Author-Photo-cropped-e1424561983800-225x300.jpg)  
+![](/assets/images/f369b-author-photo-cropped-e1424561983800-17a09881.jpg)  
 Ilana C. Myer has written for the *Globe and Mail*, the *Los Angeles Review of Books, Salon*, and the *Huffington Post*. Previously she was a freelance journalist in Jerusalem for the *Jerusalem Post, The* *Forward, Time Out Israel* and other publications. She lives in New York City.
 
 Ilana was born in New York but grew up in Jerusalem, Israel, where she spent her teen years haunting secondhand bookstores in search of books written in English—especially fantasy. It was in one of these shops that she discovered David Eddings and realized that epic fantasy continued after Tolkien, and from there went on to make such marvelous discoveries as Tad Williams, Robin Hobb, and Guy Gavriel Kay.

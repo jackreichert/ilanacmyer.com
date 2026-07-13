@@ -7,7 +7,7 @@ description: "Last Song Before Night, an epic fantasy of the lures and perils of
 layout: page
 ---
 
-[![](https://i0.wp.com/ilanacmyer.com/files/2014/07/Updated-Last-Song-Cover-198x300.jpg)](http://54.90.249.139/wp-content/uploads/2014/07/Updated-Last-Song-Cover.jpg)
+[![](/assets/images/12764-updated-last-song-cover-555f4df6.jpg)](http://54.90.249.139/wp-content/uploads/2014/07/Updated-Last-Song-Cover.jpg)
 
 [*Last Song Before Night*](http://www.amazon.com/Last-Song-Before-Night-Ilana/dp/0765378302/ref=sr_1_1?ie=UTF8&qid=1422389412&sr=8-1&keywords=last+song+before+night&pebp=1422389415592&peasin=765378302), an epic fantasy of the lures and perils of art, was released by Tor/Macmillan in October 2015 and is available in hardcover, ebook, trade paperback, and audiobook. [READ AN EXCERPT at Tor.com](http://www.tor.com/2015/08/19/excerpt-last-song-before-night-ilana-myer/).
 
