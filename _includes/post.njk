@@ -1,0 +1,45 @@
+---
+layout: base.njk
+---
+<article class="entry">
+  {%- if featured_image %}
+  <img
+    class="post-featured-image"
+    src="{{ featured_image }}"
+    alt="{{ featured_alt or featured_caption or ('Featured image for ' + title) }}"
+    fetchpriority="high"
+    decoding="async"
+  >
+  {%- endif %}
+  <header class="entry-head">
+    <time class="entry-date" datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+    <h1 class="entry-title">{{ title }}</h1>
+    <p class="entry-meta"><em>By {{ site.author }}</em></p>
+  </header>
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+  {%- if post_tags %}
+  <p class="tags">Filed under: {% for tag in post_tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+  {%- endif %}
+</article>
+{%- set newerPost = collections.posts | getPreviousCollectionItem %}
+{%- set olderPost = collections.posts | getNextCollectionItem %}
+{%- if newerPost or olderPost %}
+<nav class="pagenav" aria-label="More posts">
+  <div class="pagenav-inner">
+    {%- if olderPost %}
+    <div class="pagenav-item">
+      <span class="pagenav-label">← Earlier</span>
+      <a href="{{ olderPost.url }}">{{ olderPost.data.title }}</a>
+    </div>
+    {%- endif %}
+    {%- if newerPost %}
+    <div class="pagenav-item next">
+      <span class="pagenav-label">Later →</span>
+      <a href="{{ newerPost.url }}">{{ newerPost.data.title }}</a>
+    </div>
+    {%- endif %}
+  </div>
+</nav>
+{%- endif %}

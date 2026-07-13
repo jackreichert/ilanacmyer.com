@@ -1,0 +1,20 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+Allow: /
+
+{%- if site.robots and site.robots.aiBots %}
+{%- for bot in site.robots.aiBots %}
+
+User-agent: {{ bot }}
+{%- if site.robots.aiCrawlAllowed %}
+Allow: /
+{%- else %}
+Disallow: /
+{%- endif %}
+{%- endfor %}
+{%- endif %}
+
+Sitemap: {{ site.url }}/sitemap.xml

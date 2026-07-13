@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+<h1 class="sr-only">{{ site.name }}</h1>
+{%- set posts = collections.posts %}
+<section class="home-feed" aria-label="Recent posts">
+{%- for post in posts %}
+<article class="entry{% if loop.first %} entry--lead{% endif %}">
+  <header class="entry-header">
+    <time class="entry-date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+    <h2 class="entry-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+  </header>
+  <div class="entry-content">
+    {%- if post.data.description %}
+    <p>{{ post.data.description | excerptClean }}</p>
+    {%- endif %}
+    <p class="continue"><a href="{{ post.url }}">Continue reading…</a></p>
+  </div>
+</article>
+{%- endfor %}
+</section>

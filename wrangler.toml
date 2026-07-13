@@ -1,0 +1,29 @@
+name = "ilanacmyer-signup-worker"
+main = "signup-worker/worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Optional: Google Sheets integration
+# Create a service account at: https://console.cloud.google.com/iam-admin/serviceaccounts
+# GOOGLE_SHEET_ID = "your-sheet-id"         # From URL: https://docs.google.com/spreadsheets/d/{ID}/edit
+# GOOGLE_SERVICE_ACCOUNT_EMAIL = "name@project.iam.gserviceaccount.com"
+# GOOGLE_SHEET_RANGE = "A:E"              # Columns: Timestamp, Email, Name, Subject, Message
+
+# These should be set via wrangler secret put (never in this file):
+# GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY    # Full private key from service account JSON
+# TURNSTILE_SECRET_KEY                  # Cloudflare Turnstile secret key
+
+[[kv_namespaces]]
+binding = "SIGNUPS"
+id = "bfd1e45086df426da3338c025126d092"
+
+[[routes]]
+pattern = "ilanacmyer.com/api/signup*"
+zone_name = "ilanacmyer.com"
+
+[[routes]]
+pattern = "www.ilanacmyer.com/api/signup*"
+zone_name = "ilanacmyer.com"
+
+[observability.logs]
+enabled = true

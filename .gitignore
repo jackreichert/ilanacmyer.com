@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+_site/
+dist/
+
+# Environment variables (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Wrangler local state
+.wrangler/
+
+# WordPress sync temp files
+content/posts.__tmp/
+content/pages.__tmp/
+content/posts.__bak/
+content/pages.__bak/
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dev variables
+.dev.vars

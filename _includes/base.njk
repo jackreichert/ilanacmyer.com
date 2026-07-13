@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- set canonicalUrl = site.url + (page.url or "/") %}
+  {%- set isArticle = page.url and (page.url | replace('\\', '/')).slice(0, 3) == '/20' %}
+  {%- set socialImage = (featured_image and (site.url + featured_image)) or (site.social.defaultImage and (site.url + site.social.defaultImage)) %}
+  {%- set socialImageAlt = featured_caption or site.social.defaultImageAlt or (title or site.name) %}
+  {%- set socialImageWidth = featured_image_width or site.social.defaultImageWidth %}
+  {%- set socialImageHeight = featured_image_height or site.social.defaultImageHeight %}
+  <title>{% if title %}{{ title }} – {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  {%- if noindex %}
+  <meta name="robots" content="noindex,follow">
+  {%- endif %}
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="{{ site.locale or 'en_US' }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:type" content="{% if isArticle %}article{% else %}website{% endif %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or site.name }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  {%- if site.social.xSite %}
+  <meta name="twitter:site" content="{{ site.social.xSite }}">
+  {%- endif %}
+  {%- if site.social.xCreator %}
+  <meta name="twitter:creator" content="{{ site.social.xCreator }}">
+  {%- endif %}
+  {%- if socialImage %}
+  <meta property="og:image" content="{{ socialImage }}">
+  <meta property="og:image:alt" content="{{ socialImageAlt }}">
+  <meta property="og:image:width" content="{{ socialImageWidth }}">
+  <meta property="og:image:height" content="{{ socialImageHeight }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:image" content="{{ socialImage }}">
+  <meta name="twitter:image:alt" content="{{ socialImageAlt }}">
+  {%- endif %}
+  {%- if isArticle %}
+  <meta property="article:published_time" content="{{ page.date | isoDate }}">
+  <meta property="article:modified_time" content="{{ page.date | isoDate }}">
+  {%- if post_tags %}
+  {%- for tag in post_tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {%- endfor %}
+  {%- endif %}
+  {%- endif %}
+  {%- if site.verification.google %}
+  <meta name="google-site-verification" content="{{ site.verification.google }}">
+  {%- endif %}
+  {%- if site.verification.bing %}
+  <meta name="msvalidate.01" content="{{ site.verification.bing }}">
+  {%- endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <a class="site-brand" href="/">
+      <span class="site-title">{{ site.name }}</span>
+      <span class="site-description">Author of <em>Last Song Before Night</em></span>
+    </a>
+    <nav class="top-navigation" aria-label="Site">
+      <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+      {%- for p in collections.pages %}
+      <a href="{{ p.url }}" {% if page.url == p.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
+      {%- endfor %}
+    </nav>
+  </header>
+  <main id="main" {% if page.url != "/" %}class="single"{% endif %}>
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <nav class="bottom-navigation" aria-label="Footer">
+      <a href="/">Home</a>
+      {%- for p in collections.pages %}
+      <a href="{{ p.url }}">{{ p.data.title }}</a>
+      {%- endfor %}
+    </nav>
+    <small>© {{ buildYear }} {{ site.name }}. All Rights Reserved. {{ site.footerNote }}</small>
+  </footer>
+  {%- if site.wpcom.blogId %}
+  <script>
+    if (!/^(localhost|127\.|0\.0\.0\.0)/.test(location.hostname)) {
+      var s = document.createElement("script");
+      s.src = "https://stats.wp.com/e-{{ statsWeek }}.js";
+      s.defer = true;
+      document.body.appendChild(s);
+      _stq = window._stq || [];
+      _stq.push(["view", {
+        v: "ext",
+        blog: "{{ site.wpcom.blogId }}",
+        post: "{{ wp_id or 0 }}",
+        srv: "{{ site.wpcom.site }}"
+      }]);
+      _stq.push(["clickTrackerInit", "{{ site.wpcom.blogId }}", "{{ wp_id or 0 }}"]);
+    }
+  </script>
+  {%- endif %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ site.name | json | safe }},
+    "url": {{ site.url | json | safe }},
+    "description": {{ site.description | json | safe }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {{ (site.url + '/search/?q={search_term_string}') | json | safe }},
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.author | json | safe }},
+    "url": {{ site.url | json | safe }}{% if site.profiles and site.profiles.sameAs and site.profiles.sameAs.length %},
+    "sameAs": {{ site.profiles.sameAs | json | safe }}{% endif %}
+  }
+  </script>
+</body>
+</html>

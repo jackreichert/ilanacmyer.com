@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+{% if page.url == '/contact/' %}
+<script>
+  // Set Turnstile site key from environment or .env
+  window.TURNSTILE_SITE_KEY = '{{ site.turnstile.siteKey }}';
+</script>
+{% endif %}
+<article class="page{% if page.url == '/books/' %} page--books{% endif %}">
+  <h1 class="page-title">{{ title }}</h1>
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+</article>

@@ -1,0 +1,74 @@
+name: Sync from WordPress & Deploy
+
+on:
+  # Deploy on push to main
+  push:
+    branches: [main]
+  # Manual trigger from the Actions tab
+  workflow_dispatch:
+  # Poll WordPress.com for new publishes/updates
+  schedule:
+    - cron: "0 */3 * * *" # every 3 hours (UTC)
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync-build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync content from WordPress
+        run: npm run sync
+
+      - name: Commit synced content
+        id: sync_commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content assets/images
+          if ! git diff --cached --quiet; then
+            git commit -m "Sync content from WordPress ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No content changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build site
+        if: github.event_name == 'workflow_dispatch' || steps.sync_commit.outputs.changed == 'true'
+        env:
+          # GitHub Pages serves this repo at https://jackreichert.github.io/ilanacmyer/
+          # so all assets must be rewritten to include the /<repo-name>/ prefix.
+          PATH_PREFIX: /ilanacmyer/
+        run: npm run build
+
+      - if: github.event_name == 'workflow_dispatch' || steps.sync_commit.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+
+      - if: github.event_name == 'workflow_dispatch' || steps.sync_commit.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        if: github.event_name == 'workflow_dispatch' || steps.sync_commit.outputs.changed == 'true'
+        uses: actions/deploy-pages@v4
