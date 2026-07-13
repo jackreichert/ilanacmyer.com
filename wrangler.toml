@@ -3,11 +3,9 @@ main = "signup-worker/worker.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-# Optional: Google Sheets integration
-# Create a service account at: https://console.cloud.google.com/iam-admin/serviceaccounts
-# GOOGLE_SHEET_ID = "your-sheet-id"         # From URL: https://docs.google.com/spreadsheets/d/{ID}/edit
-# GOOGLE_SERVICE_ACCOUNT_EMAIL = "name@project.iam.gserviceaccount.com"
-# GOOGLE_SHEET_RANGE = "A:E"              # Columns: Timestamp, Email, Name, Subject, Message
+GOOGLE_SHEET_ID = "1IQmyLQkkL-INJ0wEcRbBXLwErajTl60d3dbXMt36EyQ"
+GOOGLE_SERVICE_ACCOUNT_EMAIL = "ilanacmyer-form-writer@site-hosting-101.iam.gserviceaccount.com"
+GOOGLE_SHEET_RANGE = "A:E"
 
 # These should be set via wrangler secret put (never in this file):
 # GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY    # Full private key from service account JSON
